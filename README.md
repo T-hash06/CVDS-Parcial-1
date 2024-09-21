@@ -25,8 +25,8 @@ El proyecto consiste en una aplicación Spring Boot que gestiona productos y sus
 
 En este proyecto utilizamos dos patrones de diseño:
 
-- Observer: Utilizado para notificar a los agentes de los cambios en los productos. Esto debido a que cada vez que se actualiza un producto, los agentes deben registrar la actualización.
-- Singleton: Utilizado para garantizar que solo exista una instancia de la base de datos en memoria. Esto para evitar que la inyeccion de dependencia genere multiples instancias de la base de datos.
+- `Observer`: Utilizado para notificar a los agentes de los cambios en los productos. Esto debido a que cada vez que se actualiza un producto, los agentes deben registrar la actualización.
+- `Singleton`: Utilizado para garantizar que solo exista una instancia de la base de datos en memoria. Esto para evitar que la inyeccion de dependencia genere multiples instancias de la base de datos.
 
 ## Ejecución de Pruebas
 
