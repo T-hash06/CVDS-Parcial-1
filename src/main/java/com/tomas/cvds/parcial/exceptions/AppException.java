@@ -9,12 +9,18 @@ import org.springframework.http.ResponseEntity;
  */
 public abstract class AppException extends Exception {
 
-    private Integer statusCode;
+    private final Integer statusCode;
+
     public AppException(String message, Integer statusCode) {
         super(message);
         this.statusCode = statusCode;
     }
 
+    /**
+     * Generates a ResponseEntity object with the HTTP status code and message.
+     *
+     * @return ResponseEntity containing the status code and exception message.
+     */
     public ResponseEntity<Object> getResponse() {
         return ResponseEntity.status(statusCode).body(this.getMessage());
     }

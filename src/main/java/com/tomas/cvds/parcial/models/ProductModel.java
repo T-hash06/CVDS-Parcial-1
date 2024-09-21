@@ -1,7 +1,10 @@
 package com.tomas.cvds.parcial.models;
 
+/**
+ * ProductModel class
+ * Represents a product on the database
+ */
 public class ProductModel {
-
 
     private String name;
     private Integer price;
