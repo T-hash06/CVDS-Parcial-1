@@ -1,7 +1,7 @@
 package com.tomas.cvds.parcial.database;
 
 
-import com.tomas.cvds.parcial.Exceptions.ProductException;
+import com.tomas.cvds.parcial.exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import com.tomas.cvds.parcial.repositories.ProductRepository;
 

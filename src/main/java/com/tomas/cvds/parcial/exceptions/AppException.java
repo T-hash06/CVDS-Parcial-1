@@ -1,4 +1,4 @@
-package com.tomas.cvds.parcial.Exceptions;
+package com.tomas.cvds.parcial.exceptions;
 
 import org.springframework.http.ResponseEntity;
 

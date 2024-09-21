@@ -1,6 +1,6 @@
 package com.tomas.cvds.parcial.repositories;
 
-import com.tomas.cvds.parcial.Exceptions.ProductException;
+import com.tomas.cvds.parcial.exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.tomas.cvds.parcial.Exceptions;
+package com.tomas.cvds.parcial.exceptions;
 
 public class ProductException extends AppException {
     public ProductException(String message, Integer statusCode) {

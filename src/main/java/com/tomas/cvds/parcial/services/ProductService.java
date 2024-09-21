@@ -1,6 +1,6 @@
 package com.tomas.cvds.parcial.services;
 
-import com.tomas.cvds.parcial.Exceptions.ProductException;
+import com.tomas.cvds.parcial.exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import com.tomas.cvds.parcial.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

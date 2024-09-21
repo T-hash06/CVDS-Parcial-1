@@ -1,7 +1,7 @@
 package com.tomas.cvds.parcial.controllers;
 
-import com.tomas.cvds.parcial.Exceptions.AppException;
-import com.tomas.cvds.parcial.Exceptions.ProductException;
+import com.tomas.cvds.parcial.exceptions.AppException;
+import com.tomas.cvds.parcial.exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import com.tomas.cvds.parcial.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/product")
