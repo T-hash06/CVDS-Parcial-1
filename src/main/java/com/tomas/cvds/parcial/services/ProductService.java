@@ -14,6 +14,16 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    public ProductModel getProductByName(String productName) throws ProductException.ProductNotFoundException {
+        ProductModel productModel = this.productRepository.getProductByName(productName);
+
+        if (productModel == null) {
+            throw new ProductException.ProductNotFoundException();
+        }
+
+        return productModel;
+    }
+
     public ArrayList<ProductModel> getAllProducts() {
         return this.productRepository.getAllProducts();
     }
@@ -30,6 +40,11 @@ public class ProductService {
 
         this.productRepository.updateProductStock(name, stock);
 
+        return null;
+    }
+
+    public Void deleteAllProducts() {
+        this.productRepository.deleteAllProducts();
         return null;
     }
 }

@@ -26,6 +26,10 @@ public class ProductMemoryDatabase implements ProductRepository, Subscriptable<P
         return ProductMemoryDatabase.instance;
     }
 
+    public ProductModel getProductByName(String productName) {
+        return this.products.stream().findFirst().filter(productModel -> productModel.getName().equalsIgnoreCase(productName)).orElse(null);
+    }
+
     @Override
     public ArrayList<ProductModel> getAllProducts() {
         return this.products;
@@ -53,6 +57,12 @@ public class ProductMemoryDatabase implements ProductRepository, Subscriptable<P
         product.setStock(stock);
         notifySubscribers(product);
 
+        return null;
+    }
+
+    @Override
+    public Void deleteAllProducts() {
+        this.products.clear();
         return null;
     }
 

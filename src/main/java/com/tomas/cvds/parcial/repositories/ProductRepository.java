@@ -8,10 +8,13 @@ import java.util.ArrayList;
 
 @Repository
 public interface ProductRepository {
+    ProductModel getProductByName(String productName);
 
     ArrayList<ProductModel> getAllProducts();
 
     Void createProduct(ProductModel product) throws ProductException.ProductConflictException;
 
     Void updateProductStock(String name, Integer stock) throws ProductException.ProductNotFoundException;
+
+    Void deleteAllProducts();
 }

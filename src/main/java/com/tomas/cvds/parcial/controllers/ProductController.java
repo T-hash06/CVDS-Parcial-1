@@ -17,6 +17,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @GetMapping("/{name}")
+    public ResponseEntity<?> getProductByName(@PathVariable String name) {
+
+        try {
+            ProductModel product = productService.getProductByName(name);
+            return ResponseEntity.ok(product);
+        } catch (Exception exception) {
+
+            if (exception instanceof AppException) {
+                return ((AppException) exception).getResponse();
+            }
+
+            System.out.println(exception.getMessage());
+            return ResponseEntity.internalServerError().body(null);
+        }
+    }
+
     @GetMapping
     public ResponseEntity<?> getAllProducts() {
 
@@ -55,6 +72,22 @@ public class ProductController {
     public ResponseEntity<?> updateProductStock(@RequestParam String name, @RequestParam int stock) {
         try {
             productService.updateProductStock(name, stock);
+            return ResponseEntity.ok().body(null);
+        } catch (Exception exception) {
+
+            if (exception instanceof AppException) {
+                return ((AppException) exception).getResponse();
+            }
+
+            System.out.println(exception.getMessage());
+            return ResponseEntity.internalServerError().body(null);
+        }
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> deleteAllProducts() {
+        try {
+            productService.deleteAllProducts();
             return ResponseEntity.ok().body(null);
         } catch (Exception exception) {
 

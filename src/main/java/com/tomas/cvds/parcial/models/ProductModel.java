@@ -4,7 +4,7 @@ public class ProductModel {
 
 
     private String name;
-    private String price;
+    private Integer price;
     private Integer stock;
     private String category;
 
@@ -12,31 +12,39 @@ public class ProductModel {
         return name;
     }
 
-    public void setName(String name) {
+    public ProductModel setName(String name) {
         this.name = name;
+
+        return this;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public ProductModel setPrice(Integer price) {
         this.price = price;
+
+        return this;
     }
 
     public Integer getStock() {
         return stock;
     }
 
-    public void setStock(Integer stock) {
+    public ProductModel setStock(Integer stock) {
         this.stock = stock;
+
+        return this;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public ProductModel setCategory(String category) {
         this.category = category;
+
+        return this;
     }
 }
