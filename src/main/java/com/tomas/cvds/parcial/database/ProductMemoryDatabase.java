@@ -7,7 +7,7 @@ import com.tomas.cvds.parcial.repositories.ProductRepository;
 
 import java.util.ArrayList;
 
-public class ProductMemoryDatabase implements ProductRepository, Subscriptable<Integer> {
+public class ProductMemoryDatabase implements ProductRepository, Subscriptable<ProductModel> {
 
     private static ProductMemoryDatabase instance;
     private final ArrayList<ProductModel> products;
@@ -51,25 +51,25 @@ public class ProductMemoryDatabase implements ProductRepository, Subscriptable<I
         }
 
         product.setStock(stock);
-        notifySubscribers(stock);
+        notifySubscribers(product);
 
         return null;
     }
 
     @Override
-    public void notifySubscribers(Integer data) {
-        for (Notifiable<Integer> subscriber : this.subscribers) {
+    public void notifySubscribers(ProductModel data) {
+        for (Notifiable<ProductModel> subscriber : this.subscribers) {
             subscriber.notify(data);
         }
     }
 
     @Override
-    public void addSubscriber(Notifiable<Integer> subscriber) {
+    public void addSubscriber(Notifiable<ProductModel> subscriber) {
         this.subscribers.add(subscriber);
     }
 
     @Override
-    public void removeSubscriber(Notifiable<Integer> subscriber) {
+    public void removeSubscriber(Notifiable<ProductModel> subscriber) {
         this.subscribers.remove(subscriber);
     }
 }
