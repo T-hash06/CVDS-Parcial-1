@@ -10,6 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Test class for ProductService
+ */
 @SpringBootTest
 public class ProductServiceTest {
 
@@ -21,6 +24,11 @@ public class ProductServiceTest {
         productService.deleteAllProducts();
     }
 
+    /**
+     * Should create a valid product
+     * Test if a valid product is created successfully
+     * @throws ProductException.ProductConflictException
+     */
     @Test
     public void shouldCreateAValidProduct() throws ProductException.ProductConflictException {
         ProductModel model = new ProductModel();
@@ -31,6 +39,11 @@ public class ProductServiceTest {
         assertTrue(productService.getAllProducts().contains(model));
     }
 
+    /**
+     * Should get all products
+     * Test if all products are returned successfully from the repository
+     * @throws ProductException.ProductConflictException
+     */
     @Test
     public void shouldUpdateProductStock() throws ProductException.ProductConflictException, ProductException.ProductNotFoundException, ProductException.ProductStockNegativeException {
         ProductModel model = new ProductModel();
@@ -47,6 +60,11 @@ public class ProductServiceTest {
         assertEquals(4, (int) updatedProduct.getStock());
     }
 
+    /**
+     * Should delete all products
+     * Test if all products are deleted successfully from the repository
+     * @throws ProductException.ProductConflictException
+     */
     @Test
     public void shouldDeleteAllProducts() throws ProductException.ProductConflictException {
         ProductModel model1 = new ProductModel();
@@ -64,6 +82,12 @@ public class ProductServiceTest {
         assertTrue(productService.getAllProducts().isEmpty());
     }
 
+    /**
+     * Should get a product by its name
+     * Test if a product is returned successfully by its name
+     * @throws ProductException.ProductConflictException
+     * @throws ProductException.ProductNotFoundException
+     */
     @Test
     public void shouldFindAProductByName() throws ProductException.ProductConflictException, ProductException.ProductNotFoundException {
         ProductModel model = new ProductModel();
@@ -76,6 +100,11 @@ public class ProductServiceTest {
         assertEquals(model, createdProduct);
     }
 
+    /**
+     * Should throw an error if the product name already exists
+     * Test if an error is thrown when trying to create a product with an existing name
+     * @throws ProductException.ProductConflictException
+     */
     @Test
     public void shouldErrorIfProductNameAlreadyExists() throws ProductException.ProductConflictException {
         ProductModel model = new ProductModel();
@@ -90,6 +119,10 @@ public class ProductServiceTest {
         }
     }
 
+    /**
+     * Should error if product does not exist
+     * Test if an error is thrown when trying to get a product that does not exist
+     */
     @Test
     public void shouldErrorIfProductDoesNotExistOnGetProduct() {
         try {
@@ -99,6 +132,10 @@ public class ProductServiceTest {
         }
     }
 
+    /**
+     * Should error if product does not exist when an update is attempted
+     * Test if an error is thrown when trying to update a product that does not exist
+     */
     @Test
     public void shouldErrorIfProductDoesNotExistOnUpdateProduct() {
         try {
@@ -108,6 +145,11 @@ public class ProductServiceTest {
         }
     }
 
+    /**
+     * Should error if product stock is negative
+     * Test if an error is thrown when trying to update a product with a negative stock
+     * @throws ProductException.ProductConflictException
+     */
     @Test
     public void shouldErrorIfProductStockIsNegative() throws ProductException.ProductConflictException {
         ProductModel model = new ProductModel();
