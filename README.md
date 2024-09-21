@@ -50,6 +50,30 @@ Para ejecutar el proyecto en modo de desarrollo, sigue estos pasos:
 
 1. Ejecuta: ```mvn spring-boot:run```
 
+## Ejemplos:
+
+### Obtener productos (Lista vacia)
+![img.png](images/img.png)
+
+### Creacion de productos
+![img_1.png](images/img_1.png)
+![img_3.png](images/img_3.png)
+
+### Error al crear un producto que ya existe
+![img_2.png](images/img_2.png)
+
+### Actualizacion del stock de un producto
+![img_4.png](images/img_4.png)
+
+### Lista probando el stock
+![img_5.png](images/img_5.png)
+
+### Eliminacion de todos los productos
+![img_6.png](images/img_6.png)
+
+### Funcionamiento de los agentes
+![img7.png](images/img7.png)
+
 ## Autor
 
 Tomás Felipe Panqueva
