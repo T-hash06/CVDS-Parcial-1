@@ -39,4 +39,17 @@ public class ProductMemoryDatabase implements ProductRepository {
 
         return null;
     }
+
+    @Override
+    public Void updateProductStock(String name, Integer stock) throws ProductException.ProductNotFoundException {
+        ProductModel product = this.products.stream().findFirst().filter(productModel -> productModel.getName().equalsIgnoreCase(name)).orElse(null);
+
+        if (product == null) {
+            throw new ProductException.ProductNotFoundException();
+        }
+
+        product.setStock(stock);
+
+        return null;
+    }
 }

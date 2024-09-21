@@ -22,4 +22,14 @@ public class ProductService {
         this.productRepository.createProduct(product);
         return null;
     }
+
+    public Void updateProductStock(String name, Integer stock) throws ProductException.ProductNotFoundException, ProductException.ProductStockNegativeException {
+        if (stock < 0) {
+            throw new ProductException.ProductStockNegativeException();
+        }
+
+        this.productRepository.updateProductStock(name, stock);
+
+        return null;
+    }
 }

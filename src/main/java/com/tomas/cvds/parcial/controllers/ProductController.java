@@ -22,7 +22,6 @@ public class ProductController {
 
         try {
             ArrayList<ProductModel> products = productService.getAllProducts();
-
             return ResponseEntity.ok(products);
         } catch (Exception exception) {
 
@@ -37,6 +36,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<?> createProduct(@RequestBody ProductModel product) {
+
         try {
             productService.createProduct(product);
             return ResponseEntity.status(201).body(null);
@@ -44,6 +44,23 @@ public class ProductController {
 
             if (exception instanceof AppException) {
                 return ((ProductException.ProductConflictException) exception).getResponse();
+            }
+
+            System.out.println(exception.getMessage());
+            return ResponseEntity.internalServerError().body(null);
+        }
+    }
+
+    @PatchMapping
+    public ResponseEntity<?> updateProductStock(@RequestParam String name, @RequestParam int stock) {
+
+        try {
+            productService.updateProductStock(name, stock);
+            return ResponseEntity.ok().body(null);
+        } catch (Exception exception) {
+
+            if (exception instanceof AppException) {
+                return ((AppException) exception).getResponse();
             }
 
             System.out.println(exception.getMessage());

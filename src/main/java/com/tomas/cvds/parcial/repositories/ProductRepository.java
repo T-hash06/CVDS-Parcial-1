@@ -12,4 +12,6 @@ public interface ProductRepository {
     ArrayList<ProductModel> getAllProducts();
 
     Void createProduct(ProductModel product) throws ProductException.ProductConflictException;
+
+    Void updateProductStock(String name, Integer stock) throws ProductException.ProductNotFoundException;
 }

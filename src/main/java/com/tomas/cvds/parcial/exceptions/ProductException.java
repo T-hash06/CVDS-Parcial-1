@@ -10,4 +10,16 @@ public class ProductException extends AppException {
             super("Product already exists", 409);
         }
     }
+
+    public static class ProductNotFoundException extends ProductException {
+        public ProductNotFoundException() {
+            super("Product not found", 404);
+        }
+    }
+
+    public static class ProductStockNegativeException extends ProductException {
+        public ProductStockNegativeException() {
+            super("Product stock cannot be negative", 400);
+        }
+    }
 }
