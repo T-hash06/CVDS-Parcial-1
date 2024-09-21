@@ -78,6 +78,9 @@
 						<configuration>
 							<dataFile>D:/JaCoCo/jacoco.exec</dataFile>
 							<outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+							<excludes>
+								<exclude>**/controllers/**</exclude>
+							</excludes>
 						</configuration>
 					</execution>
 				</executions>
