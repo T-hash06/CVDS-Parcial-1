@@ -1,6 +1,7 @@
 package com.tomas.cvds.parcial.database;
 
 
+import com.tomas.cvds.parcial.Exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import com.tomas.cvds.parcial.repositories.ProductRepository;
 
@@ -26,5 +27,16 @@ public class ProductMemoryDatabase implements ProductRepository {
     @Override
     public ArrayList<ProductModel> getAllProducts() {
         return this.products;
+    }
+
+    @Override
+    public Void createProduct(ProductModel product) throws ProductException.ProductConflictException {
+        if (this.products.stream().findFirst().filter(productModel -> productModel.getName().equalsIgnoreCase(product.getName())).isPresent()) {
+            throw new ProductException.ProductConflictException();
+        }
+
+        this.products.add(product);
+
+        return null;
     }
 }

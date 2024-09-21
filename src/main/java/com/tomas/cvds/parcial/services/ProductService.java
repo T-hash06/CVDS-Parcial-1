@@ -1,5 +1,6 @@
 package com.tomas.cvds.parcial.services;
 
+import com.tomas.cvds.parcial.Exceptions.ProductException;
 import com.tomas.cvds.parcial.models.ProductModel;
 import com.tomas.cvds.parcial.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,11 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public ArrayList<ProductModel> getAllProducts() {
-        return productRepository.getAllProducts();
+        return this.productRepository.getAllProducts();
+    }
+
+    public Void createProduct (ProductModel product) throws ProductException.ProductConflictException {
+        this.productRepository.createProduct(product);
+        return null;
     }
 }
