@@ -53,7 +53,6 @@ public class ProductController {
 
     @PatchMapping
     public ResponseEntity<?> updateProductStock(@RequestParam String name, @RequestParam int stock) {
-
         try {
             productService.updateProductStock(name, stock);
             return ResponseEntity.ok().body(null);
